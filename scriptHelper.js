@@ -18,17 +18,30 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 function validateInput(testInput) {
-
-}
+    //input or textarea will always return a string
+    let result = "";
+    if (testInput === "") {
+        result = "Empty"
+    } else if (isNaN(testInput)) {
+        result = "Not a Number"
+    } else {
+        result = "Is a Number"
+    } 
+    return result
+} 
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-
+    let form = document.querySelector("form")
+    form.addEventListener("submit", function(event) {
+        console.log("Button Clicked!")
+    })
 }
+
 
 async function myFetch() {
     let planetsReturned;
 
-    planetsReturned = await fetch().then( function(response) {
+    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
         });
 
     return planetsReturned;
