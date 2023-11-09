@@ -5,7 +5,20 @@
 // const { validateInput } = require("./scriptHelper");
 
 window.addEventListener("load", function() {
-    console.log(validateInput("test test"))
+    let form = document.querySelector("form");
+    form.addEventListener("submit", function(event) {
+        event.preventDefault()
+        console.log("Submit Event Listener")
+        let pilotInfo = document.querySelector("input[name=pilotName]").value
+        let copilotInfo = document.querySelector("input[name=copilotName]").value
+        let fuelLevelInfo = document.querySelector("input[name=fuelLevel]").value
+        let cargoLevelInfo = document.querySelector("input[name=cargoMass]").value
+        let listInfo = document.getElementById("faultyItems")
+        //action
+        formSubmission(document, listInfo, pilotInfo, copilotInfo, fuelLevelInfo, cargoLevelInfo)
+        
+    }) 
+    
     let listedPlanets;
     // Set listedPlanetsResponse equal to the value returned by calling myFetch()
     let listedPlanetsResponse;
