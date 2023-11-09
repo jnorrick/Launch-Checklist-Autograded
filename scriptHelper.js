@@ -3,7 +3,8 @@
 require('cross-fetch/polyfill');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
-// Here is the HTML formatting for our mission target div.
+    
+// Here is the HTML formatting for our mission target div.id="missionTarget"
 /*
                 <h2>Mission Destination</h2>
                 <ol>
@@ -107,6 +108,9 @@ async function myFetch() {
 // }
 
 function pickPlanet(planets) {
+    //create function that randomly selects a planet from the json objects
+    let randomPlanet = Math.floor(Math.random() * 6)
+    return randomPlanet
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
