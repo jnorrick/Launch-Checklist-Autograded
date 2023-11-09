@@ -28,7 +28,7 @@ function validateInput(testInput) {
         result = "Is a Number"
     } 
     return result
-} 
+}
 
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
@@ -86,13 +86,25 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
 
 async function myFetch() {
-    let planetsReturned;
-
-    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
-        });
+    const url = "https://handlers.education.launchcode.org/static/planets.json"
+    const fetchResponse = await fetch(url)
+    const planetsReturned = fetchResponse.json()
 
     return planetsReturned;
 }
+
+// async function myFetch() {
+// let planetsReturned;
+
+// planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+//     response.json().then(function(json) {
+//         console.log(json)
+//     })
+// });
+
+// return planetsReturned;
+
+// }
 
 function pickPlanet(planets) {
 }
