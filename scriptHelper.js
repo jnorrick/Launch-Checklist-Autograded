@@ -3,19 +3,17 @@
 require('cross-fetch/polyfill');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
-//         document.getElementById("missionTarget").innerHTML +=
-//         `<h2>Mission Destination</h2>
-//         <ol>
-//             <li>Name: ${planet.name} </li>
-//             <li>Diameter: ${planet.diameter} </li>
-//             <li>Star: ${planet.star}</li>
-//             <li>Distance from Earth: ${planet.distance}</li>
-//             <li>Number of Moons: ${planet.moons} </li>
-//         </ol>
-//         <img src="${planet.imageUrl}">`
-        
-//     }
-
+    document.getElementById("missionTarget").innerHTML +=
+            `<h2>Mission Destination</h2>
+            <ol>
+                <li>Name: ${name} </li>
+                <li>Diameter: ${diameter} </li>
+                <li>Star: ${star}</li>
+                <li>Distance from Earth: ${distance}</li>
+                <li>Number of Moons: ${moons} </li>
+            </ol>
+            <img src="${imageUrl}">`
+            
 }
 
 function validateInput(testInput) {

@@ -1,5 +1,7 @@
 // Write your JavaScript code here!
 
+// const { addDestinationInfo } = require("./scriptHelper");
+
 // const { pickPlanet } = require("./scriptHelper");
 
 // const { formSubmission } = require("./scriptHelper");
@@ -24,7 +26,8 @@ window.addEventListener("load", function() {
     let listedPlanets;
     // Set listedPlanetsResponse equal to the value returned by calling myFetch()
     let listedPlanetsResponse = myFetch();
-    listedPlanetsResponse.then(function (result) {
+    listedPlanetsResponse
+    .then(function (result) {
         listedPlanets = result;
         console.log(listedPlanets);
     }).then(function () {
@@ -32,40 +35,9 @@ window.addEventListener("load", function() {
         
         // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
         let randomPlanetObject = pickPlanet(listedPlanets)
-        console.log(randomPlanetObject)
-        
-        console.log()
+        console.log(randomPlanetObject.name)
 
+        // document, name, diameter, star, distance, moons, imageUrl)
+        addDestinationInfo(document, randomPlanetObject.name, randomPlanetObject.diameter, randomPlanetObject.star, randomPlanetObject.distance, randomPlanetObject.moons, randomPlanetObject.image)
     })
-    
 });
-
-
-// window.addEventListener("load", function(){
-//     fetch("https://handlers.education.launchcode.org/static/astronauts.json")
-//     .then(function(response) {
-//         response.json()
-//         .then(function(json){
-//             for (let item in json) {
-//                 let astronaut = json[item];
-//                 let activeStatusAstronaut = astronaut.active ? "green" : "black"
-//                 document.getElementById("container").innerHTML += 
-//                 `
-//                 <div class="astronaut">
-//                 <div class="bio">
-//                 <h3>${astronaut.firstName} ${astronaut.lastName}</h3>
-//                 <ul>
-//                 <li>Hours in Space: ${astronaut.hoursInSpace}</li>
-//                 <li style=color:${activeStatusAstronaut} id="status">Active: ${astronaut.active}</li>
-//                 <li>Skills: ${astronaut.skills.map((item) => item = " " + item)}</li>
-//                 </ul>
-//                 </div>
-//                 <img class="avatar" src=${astronaut.picture}>
-//                 </div>
-//                 `
-                
-//             }
-            
-//         })
-//     })
-// });
