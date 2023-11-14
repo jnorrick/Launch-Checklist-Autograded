@@ -32,7 +32,7 @@ function validateInput(testInput) {
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     if (validateInput(pilot) == "Empty" || validateInput(copilot) == "Empty" || validateInput(fuelLevel) == "Empty" || validateInput(cargoLevel) == "Empty") {
-        alert("All fields are required")
+        return alert("All fields are required")
     } 
 
     if (validateInput(fuelLevel) === "Is a Number") {
@@ -56,7 +56,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
             }
         }
     } else {
-        alert("Please enter the correct input type")
+        return alert("Please enter the correct input type")
     }
 
 
@@ -81,7 +81,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
             } 
         }
     } else {
-        alert("Please enter the correct input type")
+        return alert("Please enter the correct input type")
     }
 
     if (fuelLevel >= 10000 && cargoLevel <=10000) {
