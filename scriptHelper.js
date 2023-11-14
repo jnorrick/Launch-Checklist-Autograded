@@ -34,51 +34,58 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     if (validateInput(pilot) == "Empty" || validateInput(copilot) == "Empty" || validateInput(fuelLevel) == "Empty" || validateInput(cargoLevel) == "Empty") {
         alert("All fields are required")
     } else {
-        list.setAttribute('style', 'visibility: ""')
+        // document.getElementById("faultyItems").style.visibility = "visible" //or hidden
         let finalPilotStatus = document.getElementById("pilotStatus")
         let finalCopilotStatus = document.getElementById("copilotStatus")
         finalPilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`
         finalCopilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`
     }
 
-    if (fuelLevel >= 10000 && cargoLevel <=10000) {
-        let greenH2LaunchStatus = document.getElementById("launchStatus")
-        greenH2LaunchStatus.innerHTML = "Shuttle is Ready for Launch"
-        greenH2LaunchStatus.style.color = "green"
-    } else {
-        if (fuelLevel < 10000 || cargoLevel > 10000) {
-            let redH2LaunchStatus = document.getElementById("launchStatus")
-            redH2LaunchStatus.innerHTML = "Shuttle Not Ready for Launch"
-            redH2LaunchStatus.style.color = "red"
-        }
-    }
-
     if (validateInput(fuelLevel) == "Is a Number") {
         if (fuelLevel < 10000) {
             let lowFuelStatus = document.getElementById("fuelStatus")
             lowFuelStatus.innerHTML = "Fuel level too low for launch"
+            document.getElementById("faultyItems").style.visibility = "visible"
         } else {
             if (fuelLevel >=10000) {
                 let fuelStatusOk = document.getElementById("fuelStatus")
                 fuelStatusOk.innerHTML = "Fuel level high enough for launch"
+                document.getElementById("faultyItems").style.visibility = "hidden"
             }
         }
     } else {
         alert("Please enter the correct input type")
     }
 
+
     if (validateInput(cargoLevel) == "Is a Number") {
         if (cargoLevel > 10000) {
             let overCargolevel = document.getElementById("cargoStatus")
             overCargolevel.innerHTML = "Cargo mass too heavy for launch"
+            document.getElementById("faultyItems").style.visibility = "visible"
         } else {
             if (cargoLevel <= 10000) {
                 let underCargoLevel = document.getElementById("cargoStatus")
                 underCargoLevel.innerHTML = "Cargo mass low enough for launch"
+                document.getElementById("faultyItems").style.visibility = "hidden"
             } 
         }
     } else {
         alert("Please enter the correct input type")
+    }
+
+    if (fuelLevel >= 10000 && cargoLevel <=10000) {
+        let greenH2LaunchStatus = document.getElementById("launchStatus")
+        greenH2LaunchStatus.innerHTML = "Shuttle is Ready for Launch"
+        greenH2LaunchStatus.style.color = "green"
+        document.getElementById("faultyItems").style.visibility = "hidden"
+    } else {
+        if (fuelLevel < 10000 || cargoLevel > 10000) {
+            let redH2LaunchStatus = document.getElementById("launchStatus")
+            redH2LaunchStatus.innerHTML = "Shuttle Not Ready for Launch"
+            redH2LaunchStatus.style.color = "red"
+            document.getElementById("faultyItems").style.visibility = "visible"
+        }
     }
 
 } 
