@@ -33,22 +33,24 @@ function validateInput(testInput) {
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     if (validateInput(pilot) == "Empty" || validateInput(copilot) == "Empty" || validateInput(fuelLevel) == "Empty" || validateInput(cargoLevel) == "Empty") {
         alert("All fields are required")
-    } else {
-        // document.getElementById("faultyItems").style.visibility = "visible" //or hidden
-        let finalPilotStatus = document.getElementById("pilotStatus")
-        let finalCopilotStatus = document.getElementById("copilotStatus")
-        finalPilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`
-        finalCopilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`
-    }
+    } 
 
-    if (validateInput(fuelLevel) == "Is a Number") {
+    if (validateInput(fuelLevel) === "Is a Number") {
         if (fuelLevel < 10000) {
+            let finalPilotStatus = document.getElementById("pilotStatus")
+            let finalCopilotStatus = document.getElementById("copilotStatus")
             let lowFuelStatus = document.getElementById("fuelStatus")
+            finalPilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`
+            finalCopilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`
             lowFuelStatus.innerHTML = "Fuel level too low for launch"
             document.getElementById("faultyItems").style.visibility = "visible"
         } else {
             if (fuelLevel >=10000) {
+                let finalPilotStatus = document.getElementById("pilotStatus")
+                let finalCopilotStatus = document.getElementById("copilotStatus")
                 let fuelStatusOk = document.getElementById("fuelStatus")
+                finalPilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`
+                finalCopilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`
                 fuelStatusOk.innerHTML = "Fuel level high enough for launch"
                 document.getElementById("faultyItems").style.visibility = "hidden"
             }
@@ -58,14 +60,22 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     }
 
 
-    if (validateInput(cargoLevel) == "Is a Number") {
+    if (validateInput(cargoLevel) === "Is a Number") {
         if (cargoLevel > 10000) {
+            let finalPilotStatus = document.getElementById("pilotStatus")
+            let finalCopilotStatus = document.getElementById("copilotStatus")
             let overCargolevel = document.getElementById("cargoStatus")
+            finalPilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`
+            finalCopilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`
             overCargolevel.innerHTML = "Cargo mass too heavy for launch"
             document.getElementById("faultyItems").style.visibility = "visible"
         } else {
             if (cargoLevel <= 10000) {
+                let finalPilotStatus = document.getElementById("pilotStatus")
+                let finalCopilotStatus = document.getElementById("copilotStatus")
                 let underCargoLevel = document.getElementById("cargoStatus")
+                finalPilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`
+                finalCopilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`
                 underCargoLevel.innerHTML = "Cargo mass low enough for launch"
                 document.getElementById("faultyItems").style.visibility = "hidden"
             } 
@@ -78,15 +88,21 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         let greenH2LaunchStatus = document.getElementById("launchStatus")
         greenH2LaunchStatus.innerHTML = "Shuttle is Ready for Launch"
         greenH2LaunchStatus.style.color = "green"
-        document.getElementById("faultyItems").style.visibility = "hidden"
+        document.getElementById("faultyItems").style.visibility = "visibile"
     } else {
         if (fuelLevel < 10000 || cargoLevel > 10000) {
+            let finalPilotStatus = document.getElementById("pilotStatus")
+            let finalCopilotStatus = document.getElementById("copilotStatus")
             let redH2LaunchStatus = document.getElementById("launchStatus")
+            finalPilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`
+            finalCopilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`
             redH2LaunchStatus.innerHTML = "Shuttle Not Ready for Launch"
             redH2LaunchStatus.style.color = "red"
             document.getElementById("faultyItems").style.visibility = "visible"
         }
     }
+
+
 
 } 
 
